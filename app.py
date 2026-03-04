@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-# Estruturas de dados
 lista = []
 fila = []
 pilha = []
@@ -11,9 +10,7 @@ pilha = []
 def home():
     return render_template('index.html', lista=lista, fila=fila, pilha=pilha)
 
-# =====================
-# LISTA
-# =====================
+
 @app.route('/lista/add', methods=['POST'])
 def lista_add():
     valor = request.form['valor']
@@ -27,9 +24,7 @@ def lista_remove(index):
         lista.pop(index)
     return redirect('/')
 
-# =====================
-# FILA (FIFO)
-# =====================
+
 @app.route('/fila/add', methods=['POST'])
 def fila_add():
     valor = request.form['valor']
@@ -43,9 +38,7 @@ def fila_remove():
         fila.pop(0)
     return redirect('/')
 
-# =====================
-# PILHA (LIFO)
-# =====================
+
 @app.route('/pilha/add', methods=['POST'])
 def pilha_add():
     valor = request.form['valor']
